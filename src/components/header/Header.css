@@ -2,7 +2,7 @@
   height: 60vh;
   width: 100%;
   overflow: hidden;
-  background: url("/bannerImg.png");
+  background: url("/bannerImg.webp");
   background-position: 50% 20%;
   background-size: cover;
 }
@@ -57,10 +57,15 @@
     width: 100%;
   }
   .menu-buttons button {
-    width: 40%;
+    width: 30%;
+    font-size: 12px;
+    padding: 5px 10px;
   }
   .banner-wrapper {
     height: 40vh;
+  }
+  .menu-container img {
+    top: -10%;
   }
 }
 @media screen and (max-width: 400px) {
