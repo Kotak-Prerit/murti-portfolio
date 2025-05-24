@@ -1,6 +1,9 @@
 import "../header/Header.css";
 
-const Header = () => {
+const Header = ({ projectsRef }) => {
+  const scrollToProjects = () => {
+    projectsRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <>
       <div className="banner-wrapper"></div>
@@ -10,7 +13,7 @@ const Header = () => {
           <img src="/portfolio-title.webp" alt="portfolio" />
           <div className="menu-buttons">
             <button>Contacts</button>
-            <button>Projects</button>
+            <button onClick={scrollToProjects}>Projects</button>
           </div>
         </div>
       </div>

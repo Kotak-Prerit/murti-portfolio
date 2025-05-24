@@ -1,92 +1,13 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { forwardRef } from "react";
 import "./Projects.css";
 
-const Projects = () => {
-  const canvasRef = useRef(null);
-  const [isDrawing, setIsDrawing] = useState(false);
-  const [context, setContext] = useState(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-
-    ctx.lineWidth = 2;
-    ctx.lineCap = "round";
-    ctx.strokeStyle = "#000";
-    setContext(ctx);
-
-    const getOffset = (e) => {
-      const rect = canvas.getBoundingClientRect();
-      if (e.touches) {
-        return {
-          x: e.touches[0].clientX - rect.left,
-          y: e.touches[0].clientY - rect.top,
-        };
-      }
-      return {
-        x: e.offsetX,
-        y: e.offsetY,
-      };
-    };
-
-    const handleTouchStart = (e) => {
-      e.preventDefault();
-      const { x, y } = getOffset(e);
-      ctx.beginPath();
-      ctx.moveTo(x, y);
-      setIsDrawing(true);
-    };
-
-    const handleTouchMove = (e) => {
-      if (!isDrawing) return;
-      e.preventDefault();
-      const { x, y } = getOffset(e);
-      ctx.lineTo(x, y);
-      ctx.stroke();
-    };
-
-    const handleTouchEnd = () => {
-      ctx.closePath();
-      setIsDrawing(false);
-    };
-
-    canvas.addEventListener("touchstart", handleTouchStart, { passive: false });
-    canvas.addEventListener("touchmove", handleTouchMove, { passive: false });
-    canvas.addEventListener("touchend", handleTouchEnd);
-
-    return () => {
-      canvas.removeEventListener("touchstart", handleTouchStart);
-      canvas.removeEventListener("touchmove", handleTouchMove);
-      canvas.removeEventListener("touchend", handleTouchEnd);
-    };
-  }, [isDrawing]);
-
-  const startDrawing = (e) => {
-    const { offsetX, offsetY } = e.nativeEvent;
-    context.beginPath();
-    context.moveTo(offsetX, offsetY);
-    setIsDrawing(true);
-  };
-
-  const draw = (e) => {
-    if (!isDrawing) return;
-    const { offsetX, offsetY } = e.nativeEvent;
-    context.lineTo(offsetX, offsetY);
-    context.stroke();
-  };
-
-  const stopDrawing = () => {
-    if (!context) return;
-    context.closePath();
-    setIsDrawing(false);
-  };
-
+const Projects = forwardRef(({ refs }) => {
   return (
     <div>
       <div className="project-container">
         <img className="branding" src="Branding.webp" alt="Branding section" />
 
-        <div className="seven-eleven">
+        <div className="seven-eleven" ref={refs.brandingRef}>
           <h1 className="top-left-number kanit">01</h1>
           <div className="seven-el-header">
             <div className="seven-el-desc">
@@ -110,24 +31,11 @@ const Projects = () => {
           </div>
           <div className="seven-el-draw">
             <div className="canvas-container">
-              <canvas
-                ref={canvasRef}
-                width={400}
-                height={400}
-                onMouseDown={startDrawing}
-                onMouseMove={draw}
-                onMouseUp={stopDrawing}
-                onMouseLeave={stopDrawing}
-                style={{
-                  width: "100%",
-                  maxWidth: "400px",
-                  height: "auto",
-                  cursor: "crosshair",
-                  backgroundColor: "white",
-                  touchAction: "none",
-                }}
+              <img
+                src="logo-animation.gif"
+                alt="logo-animation"
+                className="logo-animation"
               />
-              <p className="draw">Draw anything</p>
               <img className="cap" src="7-11-cap.png" alt="7-11" />
               <img className="cards" src="7-11-cards.png" alt="7-11" />
               <img className="colors" src="7-11-colors.png" alt="7-11" />
@@ -202,7 +110,7 @@ const Projects = () => {
           </div>
         </div>
         <img className="branding" src="3d.webp" alt="Branding section" />
-        <div className="seven-eleven">
+        <div className="seven-eleven" ref={refs.modelingRef}>
           <div className="tbq-showcase" style={{ paddingInline: "5%" }}>
             <img src="3d2.webp" alt="redesign" />
           </div>
@@ -211,7 +119,7 @@ const Projects = () => {
           </div>
         </div>
         <img className="branding" src="poster.webp" alt="Branding section" />
-        <div className="seven-eleven">
+        <div className="seven-eleven" ref={refs.posterRef}>
           <h1 className="top-left-number kanit">01</h1>
           <div className="seven-el-header">
             <div className="seven-el-desc">
@@ -237,16 +145,101 @@ const Projects = () => {
           <h1 className="top-left-number kanit">03</h1>
           <div className="seven-el-header">
             <div className="seven-el-desc">
-              <h1 className="brand-heading">Event Poster</h1>
+              <h1 className="brand-heading">Campaign Poster</h1>
             </div>
           </div>
           <div className="redesigned-showcase">
-            <img src="Ganesh.webp" alt="redesign" />
+            <img src="campaign.webp" alt="redesign" />
+          </div>
+          <div className="redesigned-showcase">
+            <img src="crossant.webp" alt="redesign" />
+          </div>
+        </div>
+        <div className="seven-eleven">
+          <h1 className="top-left-number kanit">04</h1>
+          <div className="seven-el-header">
+            <div className="seven-el-desc">
+              <h1 className="brand-heading">Coming Soon Poster</h1>
+            </div>
+          </div>
+          <div className="redesigned-showcase">
+            <img src="10days.webp" alt="redesign" />
+          </div>
+        </div>
+        <img className="branding" src="typeface.png" alt="Branding section" />
+        <div className="seven-eleven" ref={refs.typefaceRef}>
+          <div className="redesigned-showcase">
+            <img src="spider.webp" alt="redesign" />
+          </div>
+          <div className="redesigned-showcase spider-showcase">
+            <img src="chars.webp" alt="redesign" />
+            <img
+              src="spider-logo.png"
+              alt="spider logo"
+              className="spider-logo"
+            />
+          </div>
+          <div className="redesigned-showcase" style={{ marginTop: "7vh" }}>
+            <img src="spider-mockup.webp" alt="redesign" />
+          </div>
+          <div className="redesigned-showcase" style={{ marginTop: "7vh" }}>
+            <img src="lof.webp" alt="redesign" />
+          </div>
+        </div>
+        <img
+          className="branding"
+          src="photography.webp"
+          alt="Branding section"
+        />
+        <div className="seven-eleven" ref={refs.photoRef}>
+          <div className="redesigned-showcase">
+            <img src="photo1.webp" alt="redesign" />
+          </div>
+          <div className="redesigned-showcase ">
+            <img src="photo2.webp" alt="redesign" />
+          </div>
+        </div>
+        <img
+          className="branding"
+          src="story-book.webp"
+          alt="Branding section"
+        />
+        <div className="seven-eleven" ref={refs.storybookRef}>
+          <div className="redesigned-showcase">
+            <img src="story-page2.webp" alt="redesign" />
+          </div>
+          <div className="redesigned-showcase ">
+            <img src="story-page1.webp" alt="redesign" />
+          </div>
+        </div>
+        <img
+          className="branding"
+          src="Illustration.webp"
+          alt="Branding section"
+        />
+        <div className="seven-eleven" ref={refs.illustrationRef}>
+          <div className="redesigned-showcase">
+            <img src="il-1.webp" alt="redesign" />
+          </div>
+          <div className="redesigned-showcase ">
+            <img src="il-2.webp" alt="redesign" />
+          </div>
+          <div className="redesigned-showcase ">
+            <img src="il-3.webp" alt="redesign" />
+          </div>
+          <div className="redesigned-showcase ">
+            <img src="il-4.webp" alt="redesign" />
+          </div>
+          <div className="redesigned-showcase ">
+            <img src="il-5.webp" alt="redesign" />
+          </div>
+          <div className="redesigned-showcase ">
+            <img src="il-6.webp" alt="redesign" />
           </div>
         </div>
       </div>
     </div>
   );
-};
+});
 
 export default Projects;

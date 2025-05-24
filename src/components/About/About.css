@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  background: url("road-bg.webp");
+  background: url("road.png");
   background-size: cover;
   background-position: top;
   margin-top: -40px;

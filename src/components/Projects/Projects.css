@@ -1,6 +1,7 @@
 .project-container {
   width: 100%;
   background: linear-gradient(#fff 50px, #d3c5b5);
+  padding-bottom: 30vh;
 }
 .branding {
   width: 100%;
@@ -56,6 +57,7 @@
   width: 100%;
   padding-inline: 5%;
   padding-top: 8vh;
+  position: relative;
 }
 .redesigned-showcase img {
   width: 100%;
@@ -79,13 +81,13 @@
   height: auto;
   width: 40%;
   align-self: center;
+  max-width: 400px;
 }
-.canvas-container canvas {
+.canvas-container .logo-animation {
   width: 100%;
   max-width: 400px;
   height: auto;
-  touch-action: none;
-  user-select: none;
+  border: 1px solid #666;
 }
 .draw {
   position: absolute;
@@ -114,11 +116,14 @@
   left: -40px;
 }
 .cards {
-  width: 135px;
+  height: 20vh;
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
 }
 
 .signages {
-  margin-top: 10vh;
+  margin-top: 15vh;
   width: 100%;
   padding-inline: 5%;
 }
@@ -127,6 +132,7 @@
   margin-left: 5%;
   margin-bottom: 5vh;
   font-family: "magnetob";
+  font-size: 2vw;
 }
 
 .signages img {
@@ -179,7 +185,16 @@
 .tbq-showcase img {
   width: 100%;
 }
-
+.spider-showcase {
+  position: relative;
+}
+.spider-logo {
+  position: absolute;
+  bottom: -10%;
+  right: 0;
+  height: 40%;
+  width: auto !important;
+}
 @media screen and (max-width: 768px) {
   .brand-heading {
     font-size: 20px;
