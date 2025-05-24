@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  background: url("C:/Users/kotak/OneDrive/Desktop/Projects/marrie-portfolio/public/road.webp");
+  background: url("/public/road.webp");
   background-size: cover;
   background-position: top;
   margin-top: -40px;
