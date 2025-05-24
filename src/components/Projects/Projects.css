@@ -1,0 +1,230 @@
+.project-container {
+  width: 100%;
+  background: linear-gradient(#fff 50px, #d3c5b5);
+}
+.branding {
+  width: 100%;
+}
+.seven-eleven {
+  width: 100%;
+  position: relative;
+  padding-bottom: 50px;
+}
+.top-left-number {
+  position: absolute;
+  left: -15px;
+  top: 0;
+  font-size: 10rem;
+  color: transparent;
+  -webkit-text-stroke: 1px black;
+  line-height: 1;
+}
+
+.seven-el-header {
+  display: flex;
+  justify-content: center;
+  padding-top: 10%;
+}
+
+.seven-el-desc {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.brand-heading {
+  font-family: "magnetob", sans-serif;
+  font-size: 2em;
+  text-align: left;
+  width: 100%;
+}
+.explaination {
+  font-size: 11px;
+  margin-top: 25px;
+  font-family: Calibri, sans-serif;
+  width: 75%;
+  padding-right: 15%;
+  font-size: 1rem;
+}
+.software-used {
+  width: 10%;
+}
+.software-used img {
+  width: 80%;
+}
+.redesigned-showcase {
+  width: 100%;
+  padding-inline: 5%;
+  padding-top: 8vh;
+}
+.redesigned-showcase img {
+  width: 100%;
+}
+.banner-showcase {
+  width: 100%;
+  padding-top: 8vh;
+}
+.banner-showcase img {
+  width: 100%;
+}
+.seven-el-draw {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 10vh;
+}
+.canvas-container {
+  position: relative;
+  height: auto;
+  width: 40%;
+  align-self: center;
+}
+.canvas-container canvas {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  touch-action: none;
+  user-select: none;
+}
+.draw {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-family: "Arial";
+}
+.cap {
+  width: 100px;
+  position: absolute;
+  top: -30px;
+  left: -40px;
+  z-index: 1;
+}
+.bag {
+  width: 200px;
+  position: absolute;
+  top: -40px;
+  left: -150px;
+}
+.colors {
+  width: 30px;
+  position: absolute;
+  bottom: 0;
+  left: -40px;
+}
+.cards {
+  width: 135px;
+}
+
+.signages {
+  margin-top: 10vh;
+  width: 100%;
+  padding-inline: 5%;
+}
+
+.signages li {
+  margin-left: 5%;
+  margin-bottom: 5vh;
+  font-family: "magnetob";
+}
+
+.signages img {
+  width: 100%;
+}
+
+.mockups {
+  display: flex;
+  width: 100%;
+}
+
+.mockups img {
+  height: 50px;
+  width: auto;
+  margin-bottom: 3vh;
+}
+
+.arlo-insta {
+  padding-inline: 10%;
+}
+
+.arlo-showcase {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 15%;
+  margin-top: -5vh;
+}
+.arlo-magazine {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 5%;
+  margin-top: -2vh;
+}
+.arlo-showcase img {
+  width: 50%;
+  height: auto;
+}
+
+.arlo-magazine img {
+  width: 65%;
+  height: auto;
+}
+
+.tbq-showcase {
+  width: 100%;
+  padding-inline: 6%;
+  margin-top: 5vh;
+}
+
+.tbq-showcase img {
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .brand-heading {
+    font-size: 20px;
+    padding-left: 10px;
+  }
+  .explaination {
+    font-size: 11px;
+    margin-top: 25px;
+    padding-right: 10px;
+  }
+  .top-left-number {
+    font-size: 5rem;
+  }
+  .software-used img {
+    width: 100%;
+  }
+  .canvas-container {
+    width: 70%;
+    height: auto;
+  }
+  .cap {
+    height: 80px;
+    width: auto;
+  }
+  .bag {
+    width: 100px;
+    height: auto;
+    bottom: -20px;
+    top: auto;
+    left: -50px;
+  }
+  .colors {
+    top: 0;
+    right: -25px;
+    width: 20px;
+    left: auto;
+  }
+  .software-used {
+    width: 15%;
+  }
+  .cards {
+    height: 100px;
+    width: auto;
+    bottom: -50px;
+    position: absolute;
+    right: -49px;
+  }
+}
