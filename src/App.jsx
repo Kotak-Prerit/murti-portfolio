@@ -15,8 +15,8 @@ function App() {
   const photoRef = useRef(null);
   const storybookRef = useRef(null);
   const illustrationRef = useRef(null);
+  const contactRef = useRef(null); // 👈 added this
 
-  const projectsRef = useRef(null);
   const lenis = new Lenis();
 
   function raf(time) {
@@ -40,7 +40,7 @@ function App() {
     <>
       <div className="app-wrapper">
         <div className="app-container">
-          <Header projectsRef={projectsRef} />
+          <Header sectionRefs={sectionRefs} />
           <About />
           <Projects
             refs={{
@@ -53,7 +53,9 @@ function App() {
               illustrationRef,
             }}
           />
-          <Contact sectionRefs={sectionRefs} />
+          <div ref={contactRef}>
+            <Contact sectionRefs={sectionRefs} />
+          </div>
         </div>
       </div>
     </>
